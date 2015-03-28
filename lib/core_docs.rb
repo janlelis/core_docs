@@ -16,10 +16,8 @@ end
 case RUBY_VERSION
 when /\A2\.1/
   CoreDocs.load_yardoc('21')
-when /\A2\.0/
-  CoreDocs.load_yardoc('20')
 else
-  CoreDocs.load_yardoc('19')
+  CoreDocs.load_yardoc('20')
 end
 
   # do not use pry-doc if rbx is active
