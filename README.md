@@ -1,9 +1,16 @@
 MRI Core Docs
 =============
 
-Core Docs is a fork from [pry-doc](https://github.com/pry/pry-doc) that separaters its functionality from the pry repl.
+Core Docs is a fork from [pry-doc](https://github.com/pry/pry-doc) that separates its functionality from the pry repl.
 
 Experimental, don't consider this battle-proof.
+
+
+TODO
+----
+
+Polish and get specs to run.
+
 
 License
 -------
