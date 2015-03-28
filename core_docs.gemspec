@@ -6,13 +6,10 @@ Gem::Specification.new do |s|
 
   s.authors = ["John Mair (banisterfiend)", "Jan Lelis (non-pry version)"]
   s.email = ["jrmair@gmail.com", "mail@janlelis.de"]
-  s.summary = 'Provides YARD and extended documentation support for Pry'
+  s.summary = 'Provides YARD and extended documentation support'
   s.description = <<DESCR
-Pry Doc is a Pry REPL plugin. It provides extended documentation support for the
-REPL by means of improving the `show-doc` and `show-source` commands. With help
-of the plugin the commands are be able to display the source code and the docs
+This gem enables you to be able to display the source code and the docs
 of Ruby methods and classes implemented in C.
-documentation
 DESCR
   s.homepage = "https://github.com/janlelis/core_docs"
   s.license = 'MIT'
