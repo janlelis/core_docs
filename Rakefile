@@ -1,7 +1,7 @@
 dlext = RbConfig::CONFIG['DLEXT']
 direc = File.dirname(__FILE__)
 
-PROJECT_NAME = "pry-doc"
+PROJECT_NAME = "core_docs"
 
 require 'latest_ruby'
 require 'rake/clean'
@@ -9,7 +9,7 @@ require "#{direc}/lib/#{PROJECT_NAME}/version"
 
 desc "run tests"
 task :test do
-  sh "bacon -k #{direc}/spec/pry-doc_spec.rb"
+  sh "bacon -k #{direc}/spec/core_docs_spec.rb"
 end
 task :spec => :test
 
@@ -17,15 +17,15 @@ task :default => :test
 
 desc "reinstall gem"
 task :reinstall => :gems do
-  sh "gem uninstall pry-doc" rescue nil
-  sh "gem install #{direc}/pkg/pry-doc-#{PryDoc::VERSION}.gem"
+  sh "gem uninstall core_docs" rescue nil
+  sh "gem install #{direc}/pkg/core_docs-#{CoreDocs::VERSION}.gem"
 end
 
 desc "build all platform gems at once"
 task :gems => :rmgems do
   mkdir_p "pkg"
   sh 'gem build *.gemspec'
-  mv "pry-doc-#{PryDoc::VERSION}.gem", "pkg"
+  mv "core_docs-#{CoreDocs::VERSION}.gem", "pkg"
 end
 
 desc "remove all platform gems"
@@ -38,7 +38,7 @@ task :gemspec => "ruby:gemspec"
 
 desc "Show version"
 task :version do
-  puts "PryDoc version: #{PryDoc::VERSION}"
+  puts "CoreDocs version: #{CoreDocs::VERSION}"
 end
 
 desc "build and push latest gems"
@@ -73,7 +73,7 @@ def generate_yard
 end
 
 def replace_existing_docs(ver)
-  system %|mkdir -p ../../../lib/pry-doc/core_docs_#{ ver } && cp -r .yardoc/* "$_"|
+  system %|mkdir -p ../../../lib/core_docs/core_docs_#{ ver } && cp -r .yardoc/* "$_"|
   Dir.chdir(File.expand_path(File.dirname(__FILE__)))
 end
 

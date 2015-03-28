@@ -1,36 +1,33 @@
-# pry-doc.rb
+# based on pry-doc.rb
 # (C) John Mair (banisterfiend); MIT license
 
 direc = File.dirname(__FILE__)
 
-require "#{direc}/pry-doc/version"
+require "#{direc}/core_docs/version"
 require "yard"
 
-module PryDoc
-
+module CoreDocs
   def self.load_yardoc(version)
-    path = "#{File.dirname(__FILE__)}/pry-doc/core_docs_#{ version }"
+    path = "#{File.dirname(__FILE__)}/core_docs/core_docs_#{ version }"
     YARD::Registry.load_yardoc(path)
   end
-
 end
 
 case RUBY_VERSION
 when /\A2\.1/
-  PryDoc.load_yardoc('21')
+  CoreDocs.load_yardoc('21')
 when /\A2\.0/
-  PryDoc.load_yardoc('20')
+  CoreDocs.load_yardoc('20')
 else
-  PryDoc.load_yardoc('19')
+  CoreDocs.load_yardoc('19')
 end
 
-class Pry
-
   # do not use pry-doc if rbx is active
-  if !Object.const_defined?(:RUBY_ENGINE) || RUBY_ENGINE !~ /rbx/
-    self.config.has_pry_doc = true
-  end
+  # if !Object.const_defined?(:RUBY_ENGINE) || RUBY_ENGINE !~ /rbx/
+  #   self.config.has_pry_doc = true
+  # end
 
+module CoreDocs
   module MethodInfo
 
     # Convert a method object into the `Class#method` string notation.
@@ -52,15 +49,16 @@ class Pry
     # @return [Array] The aliases of a method if it exists
     #                 otherwise, return empty array
     def self.aliases(meth)
-      host        = is_singleton?(meth) ? meth.receiver : meth.owner
-      method_type = is_singleton?(meth) ? :method : :instance_method
+      # host        = is_singleton?(meth) ? meth.receiver : meth.owner
+      # method_type = is_singleton?(meth) ? :method : :instance_method
 
-      methods = Pry::Method.send(:all_from_common, host, method_type, false).
-                            map { |m| m.instance_variable_get(:@method) }
+      # methods = Pry::Method.send(:all_from_common, host, method_type, false).
+      #                       map { |m| m.instance_variable_get(:@method) }
 
-      methods.select { |m| host.send(method_type,m.name) == host.send(method_type,meth.name) }.
-              reject { |m| m.name == meth.name }.
-              map    { |m| host.send(method_type,m.name) }
+      # methods.select { |m| host.send(method_type,m.name) == host.send(method_type,meth.name) }.
+      #         reject { |m| m.name == meth.name }.
+      #         map    { |m| host.send(method_type,m.name) }
+      []
     end
 
     # Checks whether method is a singleton (i.e class method)
@@ -146,24 +144,24 @@ class Pry
     # @return [String] root directory path of gem that method belongs to,
     #                  nil if could not be found
     def self.find_gem_dir(meth)
-      host = method_host(meth)
+      # host = method_host(meth)
 
-      begin
-        host_source_location, _ =  WrappedModule.new(host).source_location
-        break if host_source_location != nil
-        return unless host.name
-        host = eval(host.namespace_name)
-      end while host
+      # begin
+      #   host_source_location, _ =  WrappedModule.new(host).source_location
+      #   break if host_source_location != nil
+      #   return unless host.name
+      #   host = eval(host.namespace_name)
+      # end while host
 
-      # we want to exclude all source_locations that aren't gems (i.e
-      # stdlib)
-      if host_source_location && host_source_location =~ %r{/gems/}
-        gem_root(host_source_location)
-      else
+      # # we want to exclude all source_locations that aren't gems (i.e
+      # # stdlib)
+      # if host_source_location && host_source_location =~ %r{/gems/}
+      #   gem_root(host_source_location)
+      # else
 
         # the WrappedModule approach failed, so try our backup approach
         gem_dir_from_method(meth)
-      end
+      # end
     end
 
     # Try to guess what the gem name will be based on the name of the module.
