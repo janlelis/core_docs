@@ -1,6 +1,11 @@
 Core Docs changelog
 ===================
 
+### v0.9.1
+
+* Build 2.3 docs
+* Fix bug that not the right Ruby version would load
+
 ### v0.9.0
 
 * Ported from pry-doc
