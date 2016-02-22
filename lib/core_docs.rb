@@ -13,11 +13,10 @@ module CoreDocs
   end
 end
 
-case RUBY_VERSION
-when /\A2\.1/
-  CoreDocs.load_yardoc('21')
+if RUBY_VERSION =~ /\A2\.(\d)/
+  CoreDocs.load_yardoc("2#$1")
 else
-  CoreDocs.load_yardoc('20')
+  warn "Cannot load core docs for ruby version #{RUBY_VERSION}"
 end
 
   # do not use pry-doc if rbx is active
