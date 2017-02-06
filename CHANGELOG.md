@@ -1,6 +1,11 @@
 Core Docs changelog
 ===================
 
+### v0.9.2
+
+* Build 2.4 docs
+* Re-build 2.3, 2.2, 2.1 and 2.0 docs
+
 ### v0.9.1
 
 * Build 2.3 docs
