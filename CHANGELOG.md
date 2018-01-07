@@ -4,6 +4,7 @@ Core Docs changelog
 ### Next
 
 * Build 2.5 docs
+* Re-build 2.4, 2.3, 2.2, 2.1, and 2.0 docs
 
 ### v0.9.2
 
