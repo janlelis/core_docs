@@ -1,5 +1,10 @@
-Core Docs changelog
+Core Docs Changelog
 ===================
+
+### v0.9.4
+
+* Build 2.6 docs
+* Re-build 2.5,2.4, 2.3, 2.2, 2.1, and 2.0 docs
 
 ### v0.9.3
 
