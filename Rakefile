@@ -125,3 +125,8 @@ desc "Generate the latest Ruby 2.6 docs"
 task "gen26" do
   generate_docs_for('26', Latest::Ruby.new(Latest::MRI.new('2.6', Latest::MRIRetriever.new)))
 end
+
+desc "Generate the latest Ruby 2.7 docs"
+task "gen27" do
+  generate_docs_for('27', Latest::Ruby.new(Latest::MRI.new('2.7', Latest::MRIRetriever.new)))
+end
