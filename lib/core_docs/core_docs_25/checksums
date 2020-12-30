@@ -6,7 +6,7 @@ numeric.c 5baa28a5bb91c8ef0a7e82fc8f432ec9686aad51
 ext/-test-/proc/receiver.c c9f343751fba07644131f3db601a0c4669c8d2e1
 variable.c 98d6c3617c339b290756d927db75a482cdf7689e
 ext/-test-/proc/super.c 7eeb5eecd8eb648aef4d3e90f66aac5cb90d7290
-time.c fa2bc7fe7b56975d6ddbedd81d3314f607b9126f
+time.c b4c480b075a7b142897ccf63c868ab226775f0ec
 ext/-test-/proc/init.c ef3134cbe94bf89d2b55377bb9124705fe36148b
 ruby.c b21c7cdca072370f1f4f3f13efa48083f7fdf046
 ext/-test-/thread_fd_close/thread_fd_close.c 693b5a5e504ec79634490e3639438e8dd6b1d0fd
@@ -36,13 +36,13 @@ regcomp.c a445cc382302fc4f537064b6d2cdd19480e27247
 ext/-test-/bignum/big2str.c 8046fa9114dcb0a3eb8c47dcb57ff922bc2926e9
 complex.c 7ca15fa809cecd3691442e4bdec5d950fca82330
 ext/-test-/bignum/bigzero.c 8ef14615b0b5047602b6cb21f8ba70a35374f1bd
-string.c 70fbce2171d046720eca3a966e7fee08cbccbb6c
+string.c 375eb3cad48f0242d1b39c5ab1a69ccec61307ca
 ext/-test-/bignum/intpack.c b64c8b6d0a5c185e9413d9c121837613b4ba48d2
 sprintf.c 3b46e5f58db7a6372740ad4226d0c32f0e3570b6
 ext/-test-/bignum/div.c 6ee8d9e766c24871e2408261785599b1891ef069
 bignum.c 85f9d990bd566e07759447566e4d225bee0c7383
 ext/-test-/bignum/init.c 238b3d6fad1c8c5418dab8fc43822144db90cbf7
-marshal.c 3233f70f964187599e8a00323f149df0b6f04741
+marshal.c 3b898e1ab3fb2ad229d5d68a5daed5df55e5a003
 ext/-test-/bignum/str2big.c 0569be389c2db8b8b215d6bf74ebf5510495bb2e
 math.c 3c7b52acce4725d3d9b065e4694fce5f15cb9086
 ext/-test-/scan_args/scan_args.c ba59fddfbd9d133449aba63c60cba4a594f9030d
@@ -64,7 +64,7 @@ dmyenc.c 1d556b671daf8d3d3bfcbac70e65ab76737ac99e
 ext/-test-/win32/dln/libdlntest.c 213552d856dde91137ae2050b23b6b8e4cc1a6ea
 rational.c 655c844642eef1b500678ae96e75198224029e8e
 ext/-test-/exception/dataerror.c cae4c76e6502556163ad4c5de508fd40ff88c0f4
-re.c 5d4da79de70db17608862b707f181b54ae5fb31e
+re.c 233a556eb8c671b1c33e505fcd1e8b5e55f7e041
 ext/-test-/exception/ensured.c 984d51b3d6188b81ef47c69247c627e80ec1a30a
 vsnprintf.c 1df0242ea279bc59ef84ea7992618f76ec9bd6e8
 ext/-test-/exception/init.c fda341854b7913f7e7aceadc2651c3c5132a660f
@@ -114,11 +114,11 @@ vm_dump.c 948d16a39ec6319202fcc89268296a442847e153
 ext/-test-/bug-3571/bug.c 6b9c778d4bbeb6eceff61557fe1e35dc4368d9c5
 compile.c c07f749e5dfeb5c8465aa09275d3e61033e2847b
 ext/-test-/printf/printf.c 7a2ff2190e09222bea5b6ec0c6345d7bdeb945b3
-struct.c ad82339f07b34cc0af8286f30ab18642fc608138
+struct.c 1839f53194914f3617c145c0ff8d29a19ec6e1aa
 ext/-test-/bug_reporter/bug_reporter.c 3d9c8e1d2b9d325aa3d7b834e684ef68c6a20829
 main.c 463d6e23c2cbc44373738aebcfddaa133fb931f2
 ext/-test-/gvl/call_without_gvl/call_without_gvl.c 38563894a374d5a1cf7d47c774f818f1b0df1736
-parse.c 9f5bd5e9ce1002665b909990dd8738688ff852dc
+parse.c 1657dee22b0d3f696a56cf2d4cdebbe555c694e1
 ext/-test-/rational/rat.c c247138a35bc804cb4a8e6d3eb56a6729aa7ce1f
 goruby.c 092341d1f2dd65cffa65ddf1322e9fbf9c882c92
 ext/-test-/iseq_load/iseq_load.c 3b2cef5434f0c610a67a0b8dba35be022e49d962
@@ -151,7 +151,7 @@ ext/-test-/file/stat.c e395681d1be1f5fb2ea25092eea3f65a0bac21f9
 dir.c 146a0caf90dfb42304d43c7dce14b6d9483536f2
 ext/-test-/file/init.c 92b8d0c4fd69a7f0584ec69d477d20e82cb2bac9
 dln_find.c 5046fd2c4e13b6d4db02dc616f1004304f62e9bf
-ext/-test-/file/fs.c 2d9f9558d685236c30e339b2c5e2414bc64cefb4
+ext/-test-/file/fs.c 9bded1a42c7a3e33b7060cca460567cd7d6a11cd
 vm_method.c 04857722c0757c37dc3e0310862bfb0e358d64ac
 ext/-test-/popen_deadlock/infinite_loop_dlsym.c 5b3c49d7f1fa277286cba7bbf94edbc7d2474f42
 loadpath.c 6bb3aebe9f0d107e621617cc5394b9ab174e4b38
@@ -399,7 +399,7 @@ ext/openssl/ossl_x509store.c 1589f694b7d21e7e1eb4d8852d9298f1f8517c21
 ext/openssl/ossl_ssl_session.c 1ec7709eb297bdf35e9d94c03cd149db8a8ef009
 ext/openssl/ossl_x509ext.c 16f2ba8dcb34b6ad92a3828002496fbdb08b64dd
 ext/openssl/ossl_pkey_dh.c 179f73089355c506193cb277ec01468369734f82
-ext/openssl/ossl_asn1.c adee6488b59c50742a99e9367b820373be0f2714
+ext/openssl/ossl_asn1.c 6cc7c8ac875d2056faef065202dfd08583581e14
 ext/openssl/ossl_x509.c a2b86b987d25766f93465276348a04a4ff84b0e6
 ext/openssl/ossl_x509revoked.c 66c4ade9f91845b2c3374b5cf2e671907e0d410a
 ext/openssl/ossl_ocsp.c 711a8d35a9a45c27b11d9e4ab09b52381048287b
@@ -407,7 +407,7 @@ ext/openssl/ossl_x509cert.c 813f6d7f38a955c0887e7ae8dfb6a693e986ee6e
 ext/openssl/ossl.c c654e256cfefa81135169c91ccedd74bbf4a967a
 ext/openssl/ossl_digest.c 77d4fa5787b01fc3252a4e8f820c26c902607f6e
 ext/continuation/continuation.c ece0d9811297ed6a0840772bde8363a912f8f27f
-ext/json/parser/parser.c b27e36096e5aebba7f36017b11d87a3dbb9bc645
+ext/json/parser/parser.c 2842a24cf257f045eeece3cedf0f1681971b7fed
 ext/json/generator/generator.c 0d2548818f605e4d05011c43deeef07190215384
 ext/rbconfig/sizeof/limits.c 6fd36de9a6b34cb908cdcf0e822760558dc75feb
 ext/rbconfig/sizeof/sizes.c 88b1f2bc22206fdef1810d4b07db9fff84db6558
@@ -435,7 +435,7 @@ ext/sdbm/_sdbm.c 45311f95d766d4c2200168e91e66da617d5c0739
 ext/fcntl/fcntl.c 444cd96028d7a84b17114da2c54853fef34e037f
 ext/fiber/fiber.c e52bf733c93d0668a15d3b0ab6f2ae4d9a2442e1
 ext/pty/pty.c ef0c32b6c16bfc0282d68524297212ae5a3d70ec
-ext/ripper/ripper.c 213a8d833d4c0453fdfaefe83edc4cef4c1801a5
+ext/ripper/ripper.c 06564400a116b0aeae27f06ee563c59ff37c4b7b
 ext/ripper/eventids1.c 7b8b43d4fb6bf61dda824b77a39128640bfb6c08
 ext/ripper/eventids2table.c 7bb416e2e45332941450675e931da23158bafb41
 ext/ripper/eventids2.c 0c3fe58faf0a5df341ccc9322f5178f060ea3fd6
@@ -484,7 +484,7 @@ ext/socket/basicsocket.c 311d227cf052866c3d8d51f86d5aafcd8607645a
 ext/socket/socket.c ebdb1f181db663cd360531cd7d1162177bfb9308
 ext/socket/ifaddr.c 85763a5729ebbb5b6d5b43b67bbd67ae83d6a2b2
 ext/socket/sockssocket.c 2fc1fdaac4be5234eda8b02c308b33f366458284
-ext/socket/init.c 2acc87552a85f43aace8abef5513baa5caaafdb6
+ext/socket/init.c a66acd7b44c0f7d0ddc2b95dfdcf5cc29fe69adb
 ext/socket/getaddrinfo.c b88ef89fbe96e58cdb61420df7c5f0a3b40c1b35
 ext/socket/ipsocket.c ea743f22ebf54c39d756f7d532946c4accad8a58
 ext/socket/constdefs.c 6f0d123ea18506e71b3f1ea6983afe74e8805bbc

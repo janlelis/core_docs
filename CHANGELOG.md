@@ -6,7 +6,7 @@ Core Docs Changelog
 * Relax Ruby version requirement to allow Ruby 3.0
 * Bump yard dependency
 * Build 3.0 docs
-* Re-build 2.7, 2.6, 2.5, 2.4, and 2.3 docs
+* Re-build 2.7, 2.6, and 2.5 docs
 
 ### v0.9.5
 
