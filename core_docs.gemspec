@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.version = CoreDocs::VERSION
 
   s.authors = ["John Mair (banisterfiend)", "Jan Lelis (non-pry version)"]
-  s.email = ["jrmair@gmail.com", "mail@janlelis.de"]
+  s.email = ["jrmair@gmail.com", "hi@ruby.consulting"]
   s.summary = 'Provides YARD and extended documentation support'
   s.description = <<DESCR
 This gem enables you to be able to display the source code and the docs
