@@ -1,7 +1,7 @@
 Core Docs Changelog
 ===================
 
-### v0.9.5 (unreleased)
+### v0.9.6
 
 * Relax Ruby version requirement to allow Ruby 3.0
 * Bump yard dependency
