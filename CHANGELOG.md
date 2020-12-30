@@ -1,6 +1,12 @@
 Core Docs Changelog
 ===================
 
+### v0.9.5 (unreleased)
+
+* Relax Ruby version requirement to allow Ruby 3.0
+* Build 3.0 docs
+* Re-build 2.7, 2.6, 2.5, 2.4, and 2.3 docs
+
 ### v0.9.5
 
 * Build 2.7 docs
