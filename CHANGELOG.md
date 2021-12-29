@@ -1,6 +1,12 @@
 Core Docs Changelog
 ===================
 
+### v0.9.7
+
+* Build 3.1 docs
+* Fix bug that 3.x docs would not be loaded
+* Re-build 3.0, 2.7, and 2.6 docs
+
 ### v0.9.6
 
 * Relax Ruby version requirement to allow Ruby 3.0
