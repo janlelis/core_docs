@@ -1,6 +1,11 @@
 Core Docs Changelog
 ===================
 
+### v0.9.8 (unreleased)
+
+* Import upstream patch (by @kyrylo) to fix support for Ruby >= 2.7
+* Fix loading mechanism regression introduced in v0.9.7
+
 ### v0.9.7
 
 * Build 3.1 docs

@@ -14,7 +14,7 @@ module CoreDocs
 end
 
 if RUBY_VERSION =~ /\A(2|3)\.(\d)/
-  CoreDocs.load_yardoc("#$1.#$2")
+  CoreDocs.load_yardoc("#$1#$2")
 else
   warn "Cannot load core docs for ruby version #{RUBY_VERSION}"
 end
@@ -27,6 +27,41 @@ end
 module CoreDocs
   module MethodInfo
 
+    # From upstream patch(@kyrylo)
+    # https://github.com/pry/pry-doc/commit/f0de941e6f5338e2c933e039f9bdef09408cd1c8
+    METHOD_INSPECT_PATTERN =
+      # Ruby 2.7 changed how #inspect for methods looks like. It attaches param
+      # list and source location now. We use 2 Regexps: one is for 2.7+ and the
+      # other one is for older Rubies. This way we can modify both of them
+      # without the risk of breaking.
+      #
+      # See: https://bugs.ruby-lang.org/issues/14145
+      if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new("2.7.0")
+        %r{\A
+          \#<
+            (?:Unbound)?Method:\s
+            (.+) # Method owner such as "BigDecimal"
+            ([\#\.].+?) # Method signature such as ".finite?" or "#finite?"
+            \(.*\) # Param list
+            (?:
+              \s/.+\.rb:\d+ # Source location
+            )?
+            .* # Sometimes there's gibberish like "<main>:0", we ignore that
+          >
+        \z}x
+      else
+        %r{\A
+          \#<
+            (?:Unbound)?Method:\s
+            (.+) # Method owner such as "BigDecimal"
+            ([\#\.].+?) # Method signature such as ".finite?" or "#finite?"
+            (?:
+              \(.*\) # Param list
+            )?
+          >
+        \z}x
+      end
+
     # Convert a method object into the `Class#method` string notation.
     # @param [Method, UnboundMethod] meth
     # @return [String] The method in string receiver notation.
@@ -34,7 +69,7 @@ module CoreDocs
     #   must figure out a better way to distinguish between class methods and
     #   instance methods.
     def self.receiver_notation_for(meth)
-      match = meth.inspect.match(/\A#<(?:Unbound)?Method: (.+)([#\.].+)>\z/)
+      match = meth.inspect.match(METHOD_INSPECT_PATTERN)
       owner = meth.owner.to_s.sub(/#<.+?:(.+?)>/, '\1')
       name = match[2]
       name.sub!('#', '.') if match[1] =~ /\A#<Class:/
