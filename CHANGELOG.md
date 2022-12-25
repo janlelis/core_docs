@@ -1,6 +1,11 @@
 Core Docs Changelog
 ===================
 
+### v0.9.9
+
+* Build 3.2 docs
+* Re-build 3.1, 3.0, and 2.7 docs
+
 ### v0.9.8
 
 * Import upstream patch (by @kyrylo) to fix support for Ruby >= 2.7
