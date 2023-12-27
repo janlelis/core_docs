@@ -3,6 +3,11 @@ Core Docs Changelog
 
 ### v0.9.9
 
+* Build 3.3 docs
+* Re-build 3.2, 3.1, and 3.0 docs
+
+### v0.9.9
+
 * Build 3.2 docs
 * Re-build 3.1, 3.0, and 2.7 docs
 
