@@ -1,7 +1,11 @@
 Core Docs Changelog
 ===================
 
-### v0.9.9
+### v0.9.11
+
+* Re-build 3.3 docs with Ruby 3.3.1
+
+### v0.9.10
 
 * Build 3.3 docs
 * Re-build 3.2, 3.1, and 3.0 docs
