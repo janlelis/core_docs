@@ -1,6 +1,12 @@
 Core Docs Changelog
 ===================
 
+### v0.9.12
+
+* Add docs for Ruby 3.4 and 4.0
+* Rebuild docs for other Ruby 3.x
+* Allow Ruby 4.0
+
 ### v0.9.11
 
 * Re-build 3.3 docs with Ruby 3.3.1
