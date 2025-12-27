@@ -1,6 +1,10 @@
 Core Docs Changelog
 ===================
 
+### v0.9.13
+
+* Add Ruby 4 to Rubies allowed to look up docs
+
 ### v0.9.12
 
 * Add docs for Ruby 3.4 and 4.0

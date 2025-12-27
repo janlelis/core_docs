@@ -13,7 +13,7 @@ module CoreDocs
   end
 end
 
-if RUBY_VERSION =~ /\A(2|3)\.(\d)/
+if RUBY_VERSION =~ /\A(2|3|4)\.(\d)/
   CoreDocs.load_yardoc("#$1#$2")
 else
   warn "Cannot load core docs for ruby version #{RUBY_VERSION}"
